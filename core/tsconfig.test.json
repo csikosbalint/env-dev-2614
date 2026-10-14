@@ -1,0 +1,24 @@
+{
+  /* Test build: compiles src/tests (plus the sources they import) to .test-build,
+     run with `node --test`. Separate from tsconfig.json so published dist/ never
+     carries test code. */
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./.test-build",
+    "declaration": false,
+    "declarationMap": false,
+    "noEmit": false
+  },
+  "include": [
+    "src/index.ts",
+    "src/domain/**/*.ts",
+    "src/app/**/*.ts",
+    "src/ports/**/*.ts",
+    "src/tests/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".test-build"
+  ]
+}
